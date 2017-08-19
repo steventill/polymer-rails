@@ -1,3 +1,4 @@
+require 'slim'
 module Polymer
   module Rails
     class Railtie < ::Rails::Railtie
@@ -22,6 +23,11 @@ module Polymer
         app.config.assets.configure do |env|
           env.context_class.class_eval("include Polymer::Rails::AssetTagHelper")
           env.register_preprocessor 'text/html', Polymer::Rails::Processors::Directive
+          
+          env.register_mime_type 'text/slim', extensions: ['.slim', '.slim.html']#, charset: :html
+          # env.register_preprocessor 'text/slim', Slim::Rails::RegisterEngine::Transformer
+          # env.register_preprocessor 'text/html', Slim::Rails::RegisterEngine::Transformer
+          
           env.register_mime_type 'text/html', extensions: ['.html']
           env.register_bundle_processor 'text/html', ::Sprockets::Bundle
           env.register_postprocessor 'text/html', Polymer::Rails::Processors::Component
