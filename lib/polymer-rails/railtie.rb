@@ -25,8 +25,8 @@ module Polymer
           env.register_preprocessor 'text/html', Polymer::Rails::Processors::Directive
           
           env.register_mime_type 'text/slim', extensions: ['.slim', '.slim.html']#, charset: :html
-          # env.register_preprocessor 'text/slim', Slim::Rails::RegisterEngine::Transformer
-          # env.register_preprocessor 'text/html', Slim::Rails::RegisterEngine::Transformer
+          env.register_engine '.slim', Slim::Template, mime_type: 'text/slim'
+          env.register_processor 'text/slim', Sprockets::DirectiveProcessor.new(comment_style: "/")
           
           env.register_mime_type 'text/html', extensions: ['.html']
           env.register_bundle_processor 'text/html', ::Sprockets::Bundle
