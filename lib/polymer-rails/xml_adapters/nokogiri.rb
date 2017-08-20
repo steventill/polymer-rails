@@ -10,7 +10,7 @@ module Polymer
         XML_OPTIONS = { save_with: ::Nokogiri::XML::Node::SaveOptions::NO_EMPTY_TAGS }
 
         # Nodes that should be parsed as XML nodes
-        XML_NODES = ['*[selected]', '*[checked]', '*[src]:not(script)', '[disabled] [value]']
+        XML_NODES = ['*[selected]', '*[checked]', '*[src]:not(script)', '[disabled]', '[value]']
 
         def parse_document data
           ::Nokogiri::HTML5 data
