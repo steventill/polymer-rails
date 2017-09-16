@@ -1,7 +1,4 @@
 {
-  "name": "polymer-rails",
+  "name": "html-importer-rails",
   "private": true,
-  "dependencies": {
-    "polymer": "Polymer/polymer#2.0.1"
-  }
 }
