@@ -47,7 +47,8 @@ module HtmlImporter
 
         def absolute_asset_path(file)
           search_file = file.sub(/^(\.\.\/)+/, '/').sub(/^\/*/, '')
-          @@sprockets_env.paths.each do |path|
+          paths = [File.dirname(@context.pathname)] + @@sprockets_env.paths
+          paths.each do |path|
             file_list = Dir.glob( "#{File.absolute_path search_file, path }*")
             return file_list.first unless file_list.blank?
           end

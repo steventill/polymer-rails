@@ -16,11 +16,11 @@ module HtmlImporter
       private
 
       def component_name
-        name.gsub('_', '-').downcase
+        name.underscore.gsub('_', '-')
       end
 
       def class_name
-        name.split('_').map(&:capitalize).join('')
+        name.underscore.split('_').map(&:capitalize).join('')
       end
       
       def component_base_name
