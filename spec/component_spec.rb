@@ -1,6 +1,6 @@
 require "spec_helper"
-require "polymer-rails/xml_adapters/base"
-require "polymer-rails/component"
+require "html-importer/xml_adapters/base"
+require "html-importer/component"
 
 describe Polymer::Rails::Component do
 

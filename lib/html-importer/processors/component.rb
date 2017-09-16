@@ -1,5 +1,5 @@
-require 'polymer-rails/component'
-require "polymer-rails/processors/sprockets_processor"
+require 'html-importer/component'
+require "html-importer/processors/sprockets_processor"
 
 module Polymer
   module Rails

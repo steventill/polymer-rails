@@ -17,7 +17,7 @@ module Polymer
 end
 
 if RUBY_PLATFORM =~ /java/
-  require "polymer-rails/xml_adapters/jsoup"
+  require "html-importer/xml_adapters/jsoup"
 else
-  require "polymer-rails/xml_adapters/nokogiri"
+  require "html-importer/xml_adapters/nokogiri"
 end

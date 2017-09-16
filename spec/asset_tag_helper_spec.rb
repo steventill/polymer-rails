@@ -1,6 +1,6 @@
 require "spec_helper"
 require 'action_view'
-require 'polymer-rails/helpers/asset_tag_helper'
+require 'html-importer/helpers/asset_tag_helper'
 
 class AssetTagHelperTest
 end
