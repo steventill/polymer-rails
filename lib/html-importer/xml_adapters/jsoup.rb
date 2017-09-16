@@ -2,7 +2,7 @@ require 'ostruct'
 require 'jar_dependencies'
 require_jar 'org.jsoup', 'jsoup', '1.8.3' 
 
-module Polymer
+module HtmlImporter
   module Rails
     module XmlAdapters
       class Jsoup < Base

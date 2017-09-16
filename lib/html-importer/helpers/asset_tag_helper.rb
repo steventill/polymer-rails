@@ -1,4 +1,4 @@
-module Polymer
+module HtmlImporter
   module Rails
     module AssetTagHelper
       def html_import_tag(*sources)

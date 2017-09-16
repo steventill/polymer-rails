@@ -2,7 +2,7 @@ require "spec_helper"
 require "html-importer/xml_adapters/base"
 require "html-importer/component"
 
-describe Polymer::Rails::Component do
+describe HtmlImporter::Rails::Component do
 
   if RUBY_PLATFORM =~ /java/
     XML_ELEMENT = org.jsoup.nodes.Element

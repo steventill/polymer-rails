@@ -1,4 +1,4 @@
-module Polymer
+module HtmlImporter
   module Rails
     class Engine < ::Rails::Engine
     end

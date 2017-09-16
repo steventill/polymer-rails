@@ -1,6 +1,6 @@
 require 'uri'
 
-module Polymer
+module HtmlImporter
   module Rails
     class Component
 

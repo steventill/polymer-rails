@@ -1,4 +1,4 @@
-module Polymer
+module HtmlImporter
   module Rails
     module Processors
       class Directive < Sprockets::DirectiveProcessor

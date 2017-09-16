@@ -1,10 +1,10 @@
 require 'html-importer/component'
 require "html-importer/processors/sprockets_processor"
 
-module Polymer
+module HtmlImporter
   module Rails
     module Processors
-      class Component < Polymer::Rails::SprocketsProcessor
+      class Component < HtmlImporter::Rails::SprocketsProcessor
 
         def process
           inline_styles
