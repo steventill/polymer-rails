@@ -50,7 +50,13 @@ module HtmlImporter
           paths = [File.dirname(@context.pathname)] + @@sprockets_env.paths
           paths.each do |path|
             file_list = Dir.glob( "#{File.absolute_path search_file, path }*")
-            return file_list.first unless file_list.blank?
+            unless file_list.blank?
+              if file_list.length > 1
+                found = file_list.select{|f| File.extname(f) == File.extname(search_file) }
+                return found.first if file_list.length > 0
+              end
+              return file_list.first
+            end
           end
           components = Dir.glob("#{File.absolute_path file, File.dirname(@context.pathname)}*")
           return components.blank? ? nil : components.first
