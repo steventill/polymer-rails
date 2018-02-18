@@ -10,7 +10,51 @@ module HtmlImporter
         XML_OPTIONS = { save_with: ::Nokogiri::XML::Node::SaveOptions::NO_EMPTY_TAGS }
 
         # Nodes that should be parsed as XML nodes
-        XML_NODES = ['*[selected]', '*[checked]', '*[src]:not(script)', '[disabled]', '[value]']
+        # URI attributes are determined by using the attributes list at https://html.spec.whatwg.org/#attributes-3
+        # and looking for attributes that specify "Valid URL" as their values
+        URI_ATTRIBUTES = %w(
+          action
+          cite
+          data
+          formaction
+          href
+          itemid
+          manifest
+          ping
+          poster
+          src
+        ).freeze
+
+        # URI attributes are determined by using the attributes list at https://html.spec.whatwg.org/#attributes-3
+        # and looking for attributes that specify "Boolean attribute" as their values
+        BOOLEAN_ATTRIBUTES = %w(
+          allowfullscreen
+          allowpaymentrequest
+          allowusermedia
+          async
+          autofocus
+          autoplay
+          checked
+          controls
+          default
+          defer
+          disabled
+          formnovalidate
+          hidden
+          ismap
+          itemscope
+          loop
+          multiple
+          muted
+          nomodule
+          novalidate
+          open
+          playsinline
+          readonly
+          required
+          reversed
+          selected
+        ).freeze
 
         def parse_document data
           ::Nokogiri::HTML5 data
@@ -42,7 +86,8 @@ module HtmlImporter
 
         private
         def xml_nodes doc
-          doc.css(XML_NODES.join(','))
+          selectors = (URI_ATTRIBUTES + BOOLEAN_ATTRIBUTES).map { |attribute| "*[#{attribute}]"}
+          doc.css(selectors.join(','))
         end
         def to_html doc
           doc.css("head,body").children.to_html(encoding: ENCODING).lstrip
